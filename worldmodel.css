@@ -787,3 +787,7 @@
   .wm-stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .summary li { grid-template-columns: 40px 1fr; font-size: 1rem; }
 }
+
+/* 표지 발표자 */
+.team { font-size: 1rem; }
+.team b { margin-right: 10px; color: var(--accent); }

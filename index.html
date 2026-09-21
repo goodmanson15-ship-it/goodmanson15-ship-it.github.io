@@ -3,322 +3,101 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="자율주행의 월드모델 기술 5분 발표와 예측 모델 시뮬레이션 — 김재희">
-  <title>월드모델 발표 | 김재희</title>
-  <link rel="stylesheet" href="styles.css?v=2">
-  <link rel="stylesheet" href="worldmodel.css?v=2">
+  <meta name="description" content="김재희의 개인 소개 페이지">
+  <title>김재희 | 개인 소개</title>
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
-<body class="deck">
-  <header class="deck-bar">
-    <a class="brand" href="#s1" title="발표 처음으로">JH<span>.</span></a>
-    <span class="deck-title">WORLD MODEL · 5 MIN TALK</span>
-    <div class="deck-tools">
-      <a class="deck-btn deck-about" href="about.html">소개</a>
-      <span class="deck-count" id="deck-count">01 / 09</span>
-      <button class="deck-btn" id="deck-timer" type="button" title="발표 타이머 (T)"><span id="deck-time">0:00</span> / 5:00</button>
-      <button class="deck-btn" id="deck-notes" type="button" aria-pressed="false" title="발표 대본 보기 (N)">대본</button>
-      <button class="deck-btn deck-arrow" id="deck-prev" type="button" aria-label="이전 슬라이드">←</button>
-      <button class="deck-btn deck-arrow" id="deck-next" type="button" aria-label="다음 슬라이드">→</button>
-    </div>
-    <span class="deck-progress" aria-hidden="true"><i id="deck-progress"></i></span>
-  </header>
-
-  <main class="page-shell deck-shell">
-
-    <!-- 01 표지 -->
-    <section class="slide slide-title" id="s1" data-start="0">
-      <p class="eyebrow"><span class="status-dot"></span> 미래첨단기술의이해 I · 자율주행 기술 발표</p>
-      <h1>월드모델,<br><em>미래를 상상하는</em><br>자율주행</h1>
-      <p class="intro">World Model — 보고, 예측하고, 머릿속에서 먼저 운전해 보는 AI</p>
-      <div class="title-meta">
-        <span>김재희 · 국립공주대학교 환경공학과</span>
-        <span class="wm-muted">→ / PageDown 다음 · N 대본 · T 타이머 · F 전체화면</span>
+<body>
+  <main class="page-shell">
+    <nav class="topbar" aria-label="페이지 메뉴">
+      <a class="brand" href="#top">JH<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">소개</a>
+        <a href="#interests">관심 분야</a>
+        <a href="research.html">연구 목록</a>
+        <a href="#contact">연락처</a>
       </div>
-      <aside class="notes"><b>0:00 – 0:20</b>안녕하세요, 환경공학과 김재희입니다. 오늘은 자율주행에서 요즘 가장 주목받는 기술인 ‘월드모델’을 소개하겠습니다. 한마디로, 자동차가 머릿속에서 몇 초 뒤의 미래를 상상해 보고 운전하게 만드는 기술입니다.</aside>
+    </nav>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> OPEN TO LEARNING</p>
+        <h1>안녕하세요,<br><em>김재희</em>입니다.</h1>
+        <p class="intro">공주대학교에서 환경공학을 공부하며,<br>기술로 더 나은 움직임을 만드는 방법을 탐구하고 있습니다.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">연락하기 <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="research.html">연구 목록 보기 <span aria-hidden="true">→</span></a>
+                  </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <span class="mark-line line-one"></span>
+        <span class="mark-line line-two"></span>
+        <span class="mark-core">JH</span>
+      </div>
     </section>
 
-    <!-- 02 문제 -->
-    <section class="slide" id="s2" data-start="20">
-      <p class="section-label">01 / 왜 필요한가</p>
-      <h2>운전은 결국<br><strong>‘몇 초 뒤’를 맞히는 일</strong>입니다.</h2>
-      <div class="scene">
-        <div class="scene-step"><span class="scene-k">보기</span>옆 차로 차가 <b>깜빡이</b>를 켰다</div>
-        <span class="scene-arrow" aria-hidden="true">→</span>
-        <div class="scene-step"><span class="scene-k">상상</span>“곧 내 앞으로 <b>끼어들겠구나</b>”</div>
-        <span class="scene-arrow" aria-hidden="true">→</span>
-        <div class="scene-step"><span class="scene-k">행동</span>미리 <b>속도를 줄인다</b></div>
-      </div>
-      <p class="lead">사람은 이걸 자연스럽게 합니다. 그런데 자율주행차에게는 세 가지 벽이 있습니다.</p>
-      <div class="cards cards-3">
-        <article class="card"><span class="card-n">A</span><h3>롱테일 문제</h3><p>사고로 이어지는 드문 상황은 실제 도로에서 충분히 모으기 어렵습니다.</p></article>
-        <article class="card"><span class="card-n">B</span><h3>규칙의 한계</h3><p>세상의 모든 상황을 사람이 if–else 규칙으로 미리 써 둘 수 없습니다.</p></article>
-        <article class="card"><span class="card-n">C</span><h3>실험의 위험·비용</h3><p>위험한 상황을 실제 도로에서 반복 실험할 수는 없습니다.</p></article>
-      </div>
-      <p class="takeaway">→ 세상이 어떻게 움직이는지 <b>스스로 배운 ‘내부 시뮬레이터’</b>가 필요합니다.</p>
-      <aside class="notes"><b>0:20 – 0:55</b>운전은 결국 몇 초 뒤를 맞히는 일입니다. 옆 차가 깜빡이를 켜면 우리는 ‘끼어들겠구나’ 상상하고 미리 속도를 줄이죠. 하지만 자율주행차에는 벽이 있습니다. 사고 직전 같은 드문 상황은 데이터가 부족하고, 모든 상황을 규칙으로 쓸 수도 없고, 위험한 실험을 도로에서 반복할 수도 없습니다. 그래서 세상의 작동 방식을 스스로 배운 ‘내부 시뮬레이터’, 즉 월드모델이 필요합니다.</aside>
-    </section>
+    <section class="info-grid" id="about">
+      <article class="info-panel about-panel">
+        <p class="section-label">01 / ABOUT</p>
+        <h2>배우고, 연결하고,<br><strong>직접 움직입니다.</strong></h2>
+        <p>국립공주대학교 환경공학과에서 공부하고 있습니다. 서로 다른 분야의 지식을 연결해 실제 문제를 해결하는 과정에 관심이 많습니다.</p>
+      </article>
 
-    <!-- 03 정의 -->
-    <section class="slide" id="s3" data-start="55">
-      <p class="section-label">02 / 정의</p>
-      <h2>월드모델 =<br><strong>세상의 작동 방식을 배운 AI 속 시뮬레이터</strong></h2>
-      <div class="formula" role="img" aria-label="다음 상태는 현재 상태와 행동이 주어졌을 때의 확률분포에서 나온다">
-        <span class="f-main">ŝ<sub>t+1</sub> ~ p<sub>θ</sub>( s<sub>t+1</sub> | s<sub>t</sub> , a<sub>t</sub> )</span>
-        <span class="f-read">“지금 상태 <b>s<sub>t</sub></b>에서 내가 행동 <b>a<sub>t</sub></b>를 하면, 다음 상태는 어떻게 될까?”</span>
-      </div>
-      <div class="cards cards-3">
-        <article class="card"><span class="card-n">s</span><h3>상태 State</h3><p>지금 세상은 어떤가 — 주변 차의 위치·속도, 차로, 신호, 보행자.</p></article>
-        <article class="card"><span class="card-n">a</span><h3>행동 Action</h3><p>내가 무엇을 하면 — 가속, 제동, 조향.</p></article>
-        <article class="card"><span class="card-n">p</span><h3>예측 Prediction</h3><p>세상은 어떻게 바뀌나 — 하나가 아닌 <b>여러 가능한 미래</b>의 확률.</p></article>
-      </div>
-      <div class="history">
-        <span><b>1943</b> 크레이크(K. Craik) — 인간은 머릿속 ‘작은 세계 모형’으로 미리 생각한다</span>
-        <span><b>2018</b> Ha &amp; Schmidhuber, 「World Models」 — AI가 자신의 ‘꿈’ 속에서 학습</span>
-        <span><b>2022</b> 얀 르쿤 — 월드모델을 자율 지능의 핵심 모듈로 제안</span>
-      </div>
-      <aside class="notes"><b>0:55 – 1:35</b>월드모델은 한 문장으로 ‘세상의 작동 방식을 배운 AI 속 시뮬레이터’입니다. 수식으로는, 지금 상태 s와 내 행동 a가 주어졌을 때 다음 상태의 확률을 예측하는 함수입니다. 여기서 중요한 건 미래를 하나로 찍지 않고 여러 가능성을 확률로 본다는 점입니다. 이 아이디어는 사람이 머릿속 모형으로 생각한다는 1943년 심리학 개념에서 출발했고, 2018년 ‘World Models’ 논문에서 AI가 자기 꿈속에서 학습하는 모습을 보여 주며 주목받았습니다.</aside>
-    </section>
-
-    <!-- 04 구조 -->
-    <section class="slide" id="s4" data-start="95">
-      <p class="section-label">03 / 구조</p>
-      <h2>보고 → 압축하고 → <strong>상상하고 → 고른다</strong></h2>
-      <figure class="arch">
-        <svg viewBox="0 0 960 250" role="img" aria-labelledby="arch-t">
-          <title id="arch-t">월드모델 구조: 관측이 인코더를 거쳐 잠재 상태가 되고, 동역학 모델이 행동과 함께 미래 잠재 상태를 반복 예측하며, 디코더가 미래 장면을 복원하고, 플래너가 최선의 행동을 고른다.</title>
-          <defs>
-            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17201f"/></marker>
-            <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#dd573d"/></marker>
-          </defs>
-          <g font-family="Trebuchet MS, Malgun Gothic, sans-serif" font-size="14" fill="#17201f">
-            <rect x="10" y="80" width="128" height="70" fill="#f3f0e9" stroke="#17201f"/>
-            <text x="74" y="108" text-anchor="middle" font-weight="700">관측 o<tspan baseline-shift="sub" font-size="10">t</tspan></text>
-            <text x="74" y="130" text-anchor="middle" font-size="12" fill="#68716d">카메라 · 라이다</text>
-
-            <rect x="180" y="80" width="128" height="70" fill="#e5ece7" stroke="#17201f"/>
-            <text x="244" y="108" text-anchor="middle" font-weight="700">① 인코더</text>
-            <text x="244" y="130" text-anchor="middle" font-size="12" fill="#68716d">핵심만 압축</text>
-
-            <rect x="350" y="80" width="96" height="70" fill="#17201f"/>
-            <text x="398" y="112" text-anchor="middle" font-weight="700" fill="#f3f0e9">z<tspan baseline-shift="sub" font-size="10">t</tspan></text>
-            <text x="398" y="132" text-anchor="middle" font-size="11" fill="#c9cfcb">잠재 상태</text>
-
-            <rect x="490" y="80" width="150" height="70" fill="#dd573d"/>
-            <text x="565" y="108" text-anchor="middle" font-weight="700" fill="#f3f0e9">② 동역학 모델</text>
-            <text x="565" y="130" text-anchor="middle" font-size="12" fill="#f3f0e9">z<tspan baseline-shift="sub" font-size="9">t</tspan> + a<tspan baseline-shift="sub" font-size="9">t</tspan> → z<tspan baseline-shift="sub" font-size="9">t+1</tspan></text>
-
-            <rect x="690" y="18" width="150" height="62" fill="#e5ece7" stroke="#17201f"/>
-            <text x="765" y="44" text-anchor="middle" font-weight="700">③ 디코더</text>
-            <text x="765" y="64" text-anchor="middle" font-size="12" fill="#68716d">미래 영상 · 점유 지도</text>
-
-            <rect x="690" y="150" width="150" height="62" fill="#e5ece7" stroke="#17201f"/>
-            <text x="765" y="176" text-anchor="middle" font-weight="700">④ 플래너</text>
-            <text x="765" y="196" text-anchor="middle" font-size="12" fill="#68716d">비용이 가장 낮은 행동</text>
-
-            <text x="890" y="186" text-anchor="middle" font-weight="700" fill="#dd573d">a*</text>
-          </g>
-          <g stroke="#17201f" stroke-width="1.5" fill="none">
-            <path d="M138 115 H176" marker-end="url(#ah)"/>
-            <path d="M308 115 H346" marker-end="url(#ah)"/>
-            <path d="M446 115 H486" marker-end="url(#ah)"/>
-            <path d="M640 100 L686 58" marker-end="url(#ah)"/>
-            <path d="M640 130 L686 172" marker-end="url(#ah)"/>
-            <path d="M840 181 H872" marker-end="url(#ah)"/>
-          </g>
-          <g stroke="#dd573d" stroke-width="1.8" fill="none">
-            <path d="M600 150 C 610 214, 520 214, 530 154" marker-end="url(#ah2)"/>
-            <path d="M765 212 C 765 244, 565 244, 565 154" stroke-dasharray="4 4" marker-end="url(#ah2)"/>
-          </g>
-          <g font-family="Courier New, monospace" font-size="12" fill="#dd573d">
-            <text x="470" y="206">롤아웃(상상) 반복</text>
-            <text x="600" y="244">후보 행동 a를 넣어 시험</text>
-          </g>
-        </svg>
-      </figure>
-      <div class="cards cards-4">
-        <article class="card"><span class="card-n">①</span><h3>인코더</h3><p>수백만 픽셀의 센서 데이터를 작은 <b>잠재 상태 z</b>로 압축합니다.</p></article>
-        <article class="card"><span class="card-n">②</span><h3>동역학 모델</h3><p>z와 행동으로 다음 z를 예측하고, 반복해서 몇 초 뒤까지 <b>롤아웃</b>합니다.</p></article>
-        <article class="card"><span class="card-n">③</span><h3>디코더</h3><p>상상한 미래를 영상·점유 지도로 복원해 사람이 확인할 수 있게 합니다.</p></article>
-        <article class="card"><span class="card-n">④</span><h3>플래너</h3><p>여러 후보 행동의 미래에 점수를 매겨 <b>가장 안전하고 효율적인</b> 행동을 고릅니다.</p></article>
-      </div>
-      <aside class="notes"><b>1:35 – 2:15</b>구조는 네 부분입니다. 먼저 인코더가 카메라와 라이다의 방대한 데이터를 핵심만 담은 잠재 상태로 압축합니다. 다음으로 월드모델의 심장인 동역학 모델이 ‘이 상태에서 이 행동을 하면’ 다음 상태를 예측하고, 이걸 반복해서 몇 초 뒤까지 상상합니다. 디코더는 그 상상을 영상이나 지도로 바꿔 사람이 볼 수 있게 하고, 마지막으로 플래너가 여러 후보 행동을 상상 속에서 시험해 가장 좋은 행동을 고릅니다.</aside>
-    </section>
-
-    <!-- 05 학습 -->
-    <section class="slide" id="s5" data-start="135">
-      <p class="section-label">04 / 학습 방법과 핵심 성질</p>
-      <h2>정답은 <strong>‘다음 장면’</strong> 그 자체</h2>
-      <div class="split">
-        <div class="loop">
-          <div class="loop-step"><span>1</span>주행 기록에서 지금 장면과 행동을 입력</div>
-          <div class="loop-step"><span>2</span>모델이 다음 장면을 예측</div>
-          <div class="loop-step"><span>3</span>실제 다음 장면과 비교해 오차 계산</div>
-          <div class="loop-step"><span>4</span>오차가 줄도록 모델을 수정 · 반복</div>
-          <p class="loop-note"><b>자기지도학습</b> — 사람이 라벨을 달 필요가 없어, 수많은 시간의 주행 영상을 그대로 학습 데이터로 쓸 수 있습니다.</p>
+      <article class="info-panel detail-panel" id="interests">
+        <div class="detail-row">
+          <span class="detail-label">소속</span>
+          <span>국립공주대학교<br>환경공학과</span>
         </div>
-        <div class="props">
-          <div class="prop"><h3>행동 조건부 <small>Action-conditioned</small></h3><p>“브레이크를 밟으면 / 안 밟으면”에 따라 다른 미래를 만들어야 계획에 쓸 수 있습니다.</p></div>
-          <div class="prop"><h3>확률적 · 다중 미래 <small>Multimodal</small></h3><p>옆 차는 끼어들 수도, 안 할 수도 있습니다. 미래를 하나로 찍으면 위험합니다.</p></div>
-          <div class="prop"><h3>잠재 공간 <small>Latent space</small></h3><p>픽셀 대신 압축된 표현에서 상상해야 실시간으로 빠르게 계산할 수 있습니다.</p></div>
-          <div class="prop"><h3>물리 · 시간 일관성 <small>Consistency</small></h3><p>차가 갑자기 사라지거나 순간이동하면 안 됩니다. 물리 법칙을 지켜야 합니다.</p></div>
+        <div class="detail-row">
+          <span class="detail-label">수업</span>
+          <span>미래첨단기술의이해 I</span>
         </div>
-      </div>
-      <aside class="notes"><b>2:15 – 2:45</b>학습 방법이 이 기술의 강점입니다. 정답이 ‘다음 장면’ 그 자체라서 사람이 라벨을 달 필요가 없습니다. 주행 기록만 있으면 스스로 배우는 자기지도학습이죠. 좋은 월드모델은 네 가지 성질이 필요합니다. 내 행동에 따라 다른 미래를 만들 것, 미래를 하나가 아니라 여러 개로 볼 것, 압축된 공간에서 빠르게 상상할 것, 그리고 물리 법칙을 지킬 것입니다.</aside>
-    </section>
-
-    <!-- 06 활용과 사례 -->
-    <section class="slide" id="s6" data-start="165">
-      <p class="section-label">05 / 자율주행 활용과 대표 사례</p>
-      <h2>데이터를 <strong>만들고</strong>, 시험하고, <strong>계획</strong>한다</h2>
-      <div class="cards cards-4">
-        <article class="card"><span class="card-n">01</span><h3>희귀 상황 생성</h3><p>폭설, 역주행, 무단횡단처럼 모으기 힘든 장면을 합성해 학습 데이터로.</p></article>
-        <article class="card"><span class="card-n">02</span><h3>폐루프 시험</h3><p>내 행동에 반응하는 가상 도로에서 수백만 km를 안전하게 검증.</p></article>
-        <article class="card"><span class="card-n">03</span><h3>상상 속 계획</h3><p>여러 행동을 머릿속에서 먼저 시험 — 모델 예측 제어(MPC).</p></article>
-        <article class="card"><span class="card-n">04</span><h3>사전학습</h3><p>미래를 예측하며 배운 표현이 인지·판단 성능을 끌어올림.</p></article>
-      </div>
-      <ol class="timeline">
-        <li><b>2018</b><span>World Models</span><small>Ha &amp; Schmidhuber · VAE + RNN, ‘꿈’ 속 학습</small></li>
-        <li><b>2020–23</b><span>Dreamer 시리즈</span><small>Hafner 외 · 잠재 공간 상상으로 행동 학습</small></li>
-        <li><b>2022</b><span>MILE</span><small>Wayve · 도시 주행용 모델 기반 모방학습</small></li>
-        <li><b>2023</b><span>GAIA-1 · OccWorld</span><small>영상·행동으로 주행 장면 생성 / 3D 점유 공간 예측</small></li>
-        <li><b>2025</b><span>NVIDIA Cosmos · GAIA-2</span><small>물리 AI를 위한 월드 파운데이션 모델</small></li>
-      </ol>
-      <aside class="notes"><b>2:45 – 3:15</b>자율주행에서는 크게 네 가지로 씁니다. 모으기 힘든 위험 장면을 만들어 내고, 내 행동에 반응하는 가상 도로에서 시험하고, 상상 속에서 행동을 미리 시험해 계획하고, 미래 예측으로 배운 지식을 인지 성능 향상에 씁니다. 2018년 논문에서 시작해, 웨이브의 GAIA, 엔비디아의 Cosmos처럼 이제는 기업들이 주행 영상을 생성하는 대형 월드모델을 내놓고 있습니다. 그럼 이 원리를 직접 보겠습니다.</aside>
-    </section>
-
-    <!-- 07 시뮬레이션 -->
-    <section class="slide slide-sim" id="s7" data-start="195">
-      <p class="section-label">06 / 직접 해 보기 — 예측 모델 시뮬레이션</p>
-      <h2>상상한 미래로 <strong>운전하는 차</strong></h2>
-      <p class="lead">주황색 차가 자율주행차입니다. <b class="c-pred">노란 선</b>은 월드모델이 주변 차들에 대해 상상한 여러 미래, <b class="c-plan">초록 선</b>은 그중 가장 안전하다고 고른 내 경로입니다.</p>
-
-      <div class="wm" id="wm-sim">
-        <div class="wm-toolbar">
-          <div class="wm-modes" role="group" aria-label="예측 방식">
-            <button type="button" data-mode="worldmodel">월드모델</button>
-            <button type="button" data-mode="constvel">등속 예측</button>
-            <button type="button" data-mode="reactive">예측 없음</button>
-          </div>
-          <div class="wm-actions">
-            <button type="button" class="wm-btn wm-btn-primary" id="wm-play" aria-pressed="false">시작</button>
-            <button type="button" class="wm-btn" id="wm-reset">초기화</button>
-            <button type="button" class="wm-btn wm-btn-event" id="wm-cutin">끼어들기</button>
-            <button type="button" class="wm-btn wm-btn-event" id="wm-brake">앞차 급정거</button>
+        <div class="detail-row interest-row">
+          <span class="detail-label">관심</span>
+          <div class="tag-list">
+            <span class="tag">자율운항</span>
+            <span class="tag">제어</span>
+            <span class="tag">AI</span>
+            <span class="tag">월드모델</span>
           </div>
         </div>
-
-        <div class="wm-stage">
-          <canvas id="wm-canvas" aria-label="고속도로 시뮬레이션 화면"></canvas>
-        </div>
-        <div class="wm-legend">
-          <span><i class="lg lg-ego"></i>자율주행차</span>
-          <span><i class="lg lg-car"></i>주변 차량</span>
-          <span><i class="lg lg-pred"></i>상상한 미래 (진한 선 = 가장 그럴듯한 미래)</span>
-          <span><i class="lg lg-plan"></i>선택한 경로</span>
-          <span><i class="lg lg-cand"></i>검토한 후보 행동</span>
-          <label class="wm-check"><input type="checkbox" id="wm-show-pred" checked> 미래 표시</label>
-          <label class="wm-check"><input type="checkbox" id="wm-show-plan" checked> 경로 표시</label>
-          <label class="wm-speed">속도 <input type="range" id="wm-speed" min="0.25" max="4" step="0.25" value="1"> <output id="wm-speed-out">1×</output></label>
-        </div>
-
-        <div class="wm-panels">
-          <section class="wm-panel">
-            <h3 class="wm-h">설정 <small>슬라이더를 움직이면 바로 반영</small></h3>
-            <div class="wm-params" id="wm-params"></div>
-            <div class="wm-seed">
-              <label for="wm-seed">랜덤 시드</label>
-              <input type="number" id="wm-seed" min="1" max="99999">
-              <button type="button" class="wm-btn wm-btn-sm" id="wm-seed-rand">무작위</button>
-            </div>
-          </section>
-
-          <section class="wm-panel">
-            <h3 class="wm-h">코드로 설정 <small>Ctrl + Enter로 실행</small></h3>
-            <textarea id="wm-code" spellcheck="false" autocomplete="off" aria-label="시뮬레이션 설정 코드"></textarea>
-            <div class="wm-code-actions">
-              <button type="button" class="wm-btn wm-btn-primary" id="wm-run-code">코드 실행 ▶</button>
-              <button type="button" class="wm-btn" id="wm-default-code">기본값</button>
-            </div>
-            <p class="wm-code-msg" id="wm-code-msg" aria-live="polite"></p>
-          </section>
-
-          <section class="wm-panel">
-            <h3 class="wm-h">결과</h3>
-            <div class="wm-stats" id="wm-stats"></div>
-            <h3 class="wm-h wm-h-2">비교 실험 <small>같은 설정 · 같은 시드</small></h3>
-            <button type="button" class="wm-btn" id="wm-compare-btn">세 방식 비교 실행</button>
-            <div id="wm-compare" aria-live="polite"></div>
-          </section>
-        </div>
-
-        <details class="wm-how">
-          <summary>이 시뮬레이션은 어떻게 동작하나요?</summary>
-          <ol>
-            <li><b>관측</b> — 0.2초마다 주변 차량의 위치·속도·가속도를 센서 노이즈가 섞인 채로 읽습니다.</li>
-            <li><b>상상</b> — 월드모델이 차량마다 ‘상상하는 미래 수’만큼 미래 궤적을 샘플링합니다. 정확도가 높을수록 깜빡이(의도)와 운전 성향을 잘 읽고, 낮을수록 예측이 흐려집니다.</li>
-            <li><b>시험</b> — 가속·제동 7가지 × 차로 유지/변경 = 최대 21개 후보 행동을 모든 상상 속 미래에 넣어 봅니다.</li>
-            <li><b>채점</b> — 비용 = 충돌 위험 + 안전거리 부족 + 목표 속도와의 차이 + 승차감. ‘위험 회피 성향’은 평균적인 미래와 최악의 미래 중 어느 쪽을 더 중시할지 정합니다.</li>
-            <li><b>선택</b> — 비용이 가장 낮은 행동을 실행하고, 0.2초 뒤 다시 상상합니다 (모델 예측 제어, MPC).</li>
-          </ol>
-          <p><b>등속 예측</b>은 “모두 지금 속도로 직진한다”는 한 가지 미래만 상상합니다. <b>예측 없음</b>은 이미 내 차로에 들어온 앞차에만 0.7초 늦게 반응합니다. ‘예측 오차(최선 샘플)’는 상상한 여러 미래 중 실제와 가장 가까웠던 것의 오차(minFDE)입니다. 브라우저 콘솔에서 <code>WM.run({ horizon: 5 })</code>처럼 코드로도 실행할 수 있습니다.</p>
-        </details>
-      </div>
-      <aside class="notes"><b>3:15 – 4:20</b>(시작 버튼) 주황색이 자율주행차, 노란 선들이 월드모델이 상상한 주변 차들의 여러 미래, 초록 선이 고른 경로입니다. (끼어들기 버튼) 옆 차가 깜빡이를 켜는 순간 노란 선이 제 차로로 휘어지고, 차가 미리 속도를 줄입니다. (등속 예측으로 바꾸고 다시 끼어들기) 이번엔 ‘모두 직진한다’고만 가정해서, 차가 들어온 뒤에야 급하게 브레이크를 밟습니다. (정확도를 낮추거나 예측 시간을 줄여 보기) 상상이 부정확하면 안전도 떨어집니다. (비교 실험 버튼) 같은 조건에서 세 방식을 돌려 보면 충돌과 위기 상황의 차이가 숫자로 드러납니다. 미래를 여러 개 상상할수록 안전해지지만, 계산량도 함께 늘어납니다.</aside>
+      </article>
     </section>
 
-    <!-- 08 한계 -->
-    <section class="slide" id="s8" data-start="260">
-      <p class="section-label">07 / 한계와 과제</p>
-      <h2>상상은 강력하지만,<br><strong>틀릴 수도 있습니다.</strong></h2>
-      <div class="cards cards-3 cards-issues">
-        <article class="card"><span class="card-n">!</span><h3>환각 Hallucination</h3><p>그럴듯하지만 물리적으로 불가능한 장면 — 차가 사라지거나 합쳐짐.</p></article>
-        <article class="card"><span class="card-n">!</span><h3>누적 오차</h3><p>한 걸음씩 예측을 이어 붙이면 작은 오차가 커져 먼 미래일수록 부정확.</p></article>
-        <article class="card"><span class="card-n">!</span><h3>평가의 어려움</h3><p>‘보기 좋은 영상’이 ‘안전한 판단’을 보장하지 않음. 무엇으로 채점할지가 과제.</p></article>
-        <article class="card"><span class="card-n">!</span><h3>계산 비용</h3><p>차 안에서 실시간으로 여러 미래를 상상하려면 막대한 연산이 필요.</p></article>
-        <article class="card"><span class="card-n">!</span><h3>처음 보는 상황</h3><p>학습 데이터에 없던 상황(분포 밖)에서는 상상 자체가 빗나갈 수 있음.</p></article>
-        <article class="card"><span class="card-n">!</span><h3>안전 보증</h3><p>신경망의 판단을 어떻게 검증하고 설명할지 — 규제·책임의 문제.</p></article>
-      </div>
-      <aside class="notes"><b>4:20 – 4:45</b>물론 한계도 있습니다. 그럴듯하지만 물리적으로 말이 안 되는 장면을 만드는 환각, 예측을 이어 붙일수록 커지는 누적 오차, 그리고 ‘보기 좋은 영상’과 ‘안전한 판단’이 다르다는 평가 문제가 대표적입니다. 차 안에서 실시간으로 돌리기 위한 계산 비용과, 처음 보는 상황에서의 신뢰성, 안전을 어떻게 보증할지도 남은 과제입니다.</aside>
+    <section class="talk-section" id="talk">
+      <p class="section-label">02 / RESEARCH</p>
+      <a class="talk-card" href="research.html">
+        <span class="talk-meta">최근 연구 · 팀 발표 · 시뮬레이션 포함</span>
+        <span class="talk-title">월드모델, <em>미래를 상상하는</em> 자율주행</span>
+        <span class="talk-desc">자율주행차가 머릿속에서 몇 초 뒤의 미래를 상상하고 운전하는 기술. 구조와 학습 방법, 활용 사례, 한계를 정리하고, 직접 값을 바꿔 보는 예측 모델 시뮬레이션을 담았습니다.</span>
+        <span class="talk-go">연구 목록에서 보기 <span aria-hidden="true">→</span></span>
+      </a>
     </section>
 
-    <!-- 09 정리 -->
-    <section class="slide slide-end" id="s9" data-start="285">
-      <p class="section-label">08 / 정리</p>
-      <h2>미래를 <strong>상상할 줄 아는</strong> 기계</h2>
-      <ol class="summary">
-        <li><span>01</span><p>월드모델은 “내가 이렇게 하면 세상이 어떻게 될까”를 예측하는 <b>AI 속 시뮬레이터</b>입니다.</p></li>
-        <li><span>02</span><p><b>인코더 → 동역학 → 디코더 → 플래너</b> 구조로, 여러 미래를 상상하고 가장 좋은 행동을 고릅니다.</p></li>
-        <li><span>03</span><p>데이터 생성·시험·계획에 쓰이며, <b>환각과 누적 오차</b>가 풀어야 할 과제입니다.</p></li>
-      </ol>
-      <p class="closing">자동차뿐 아니라 자율운항 선박과 로봇까지 — 움직이는 기계는 앞으로 <em>‘먼저 상상하고 움직이게’</em> 될 것입니다.</p>
-      <div class="thanks">
-        <strong>감사합니다<span>.</span></strong>
-        <span class="wm-muted">질문 받겠습니다</span>
+    <section class="contact-section" id="contact">
+      <div>
+        <p class="section-label">03 / CONTACT</p>
+        <h2>함께 이야기해요<span>.</span></h2>
       </div>
-      <details class="refs">
-        <summary>참고 자료</summary>
-        <ul>
-          <li>K. Craik, <i>The Nature of Explanation</i>, 1943.</li>
-          <li>D. Ha &amp; J. Schmidhuber, “World Models,” 2018.</li>
-          <li>D. Hafner 외, “Dream to Control” (2020), “Mastering Diverse Domains through World Models” (DreamerV3, 2023).</li>
-          <li>Y. LeCun, “A Path Towards Autonomous Machine Intelligence,” 2022.</li>
-          <li>A. Hu 외, “Model-Based Imitation Learning for Urban Driving” (MILE), 2022.</li>
-          <li>A. Hu 외, “GAIA-1: A Generative World Model for Autonomous Driving,” Wayve, 2023.</li>
-          <li>W. Zheng 외, “OccWorld: Learning a 3D Occupancy World Model for Autonomous Driving,” 2023.</li>
-          <li>NVIDIA, “Cosmos World Foundation Model Platform for Physical AI,” 2025.</li>
-        </ul>
-      </details>
-      <aside class="notes"><b>4:45 – 5:00</b>정리하겠습니다. 월드모델은 ‘내가 이렇게 하면 세상이 어떻게 될까’를 예측하는 AI 속 시뮬레이터이고, 여러 미래를 상상해 가장 좋은 행동을 고릅니다. 자동차뿐 아니라 제 관심 분야인 자율운항 선박과 로봇에도 같은 원리가 쓰일 것입니다. 들어 주셔서 감사합니다.</aside>
+      <div class="contact-links">
+        <!-- 아래 두 링크의 href와 표시 글자를 본인의 정보로 바꿔주세요. -->
+        <a class="contact-link" href="mailto:your-email@example.com">
+          <span class="contact-type">EMAIL</span>
+          <span>your-email@example.com</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-link" href="https://github.com/your-github-id" target="_blank" rel="noreferrer">
+          <span class="contact-type">GITHUB</span>
+          <span>github.com/your-github-id</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
     </section>
 
     <footer>
       <span>© 2026 JAEHEE KIM</span>
-      <a href="about.html">ABOUT ME →</a>
+      <span>BUILT WITH CURIOSITY</span>
     </footer>
   </main>
-
-  <script src="worldmodel-core.js?v=2"></script>
-  <script src="worldmodel-sim.js?v=2"></script>
-  <script src="worldmodel-deck.js?v=2"></script>
 </body>
 </html>
