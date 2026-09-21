@@ -279,6 +279,68 @@ h1 em {
   font-size: 0.68rem;
 }
 
+.talk-section {
+  padding: 70px 0 0;
+}
+
+.talk-card {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 38px 40px;
+  color: var(--paper);
+  background: var(--ink);
+  transition: background 180ms ease;
+}
+
+.talk-card:hover { background: #222d2b; }
+
+.talk-meta {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+.talk-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.07em;
+  word-break: keep-all;
+}
+
+.talk-title em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.talk-desc {
+  max-width: 640px;
+  color: #b9c1bd;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.talk-go {
+  justify-self: start;
+  margin-top: 8px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.talk-go span {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--accent);
+  transition: transform 180ms ease;
+}
+
+.talk-card:hover .talk-go span { transform: translate(3px, -3px); }
+
 .contact-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -342,5 +404,7 @@ footer {
   .about-panel { padding-right: 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .detail-panel { padding-left: 0; }
   .contact-section { gap: 55px; padding: 78px 0 88px; }
+  .talk-section { padding-top: 56px; }
+  .talk-card { padding: 28px 22px; }
   footer { gap: 20px; line-height: 1.5; }
 }
