@@ -814,3 +814,44 @@
 .team-links a:hover .tl-arrow { transform: translate(3px, -3px); }
 @media (max-width: 1000px) { .team-links ul { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 700px) { .team-links ul { grid-template-columns: 1fr; } }
+
+/* 마지막 슬라이드: 예상 질문 */
+.qa { margin-top: 38px; }
+.qa-hint { margin-left: 10px; color: var(--muted); }
+.qa details { border-bottom: 1px solid var(--line); }
+.qa details:first-of-type { margin-top: 14px; border-top: 1px solid var(--line); }
+.qa summary {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 16px 34px 16px 0;
+  position: relative;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+}
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after {
+  position: absolute;
+  top: 14px;
+  right: 4px;
+  content: '+';
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 1.2rem;
+}
+.qa details[open] summary::after { content: '−'; }
+.qa summary:hover { color: var(--accent); }
+.qa-n { flex: none; color: var(--accent); font-family: var(--mono); font-size: 0.8rem; }
+.qa details p {
+  margin: 0 0 18px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--accent);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+.qa details p b { color: var(--accent); }
