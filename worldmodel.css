@@ -791,3 +791,26 @@
 /* 표지 발표자 */
 .team { font-size: 1rem; }
 .team b { margin-right: 10px; color: var(--accent); }
+
+/* 마지막 슬라이드: 팀원 홈페이지 */
+.team-links { margin-top: 34px; }
+.team-links ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.team-links li { background: var(--paper); }
+.team-links a,
+.tl-none { position: relative; display: block; height: 100%; padding: 16px 18px; }
+.tl-name { display: block; font-weight: 700; font-size: 1rem; }
+.tl-url { display: block; margin-top: 4px; color: var(--muted); font-family: var(--mono); font-size: 0.68rem; word-break: break-all; }
+.tl-arrow { position: absolute; top: 14px; right: 16px; color: var(--accent); transition: transform 180ms ease; }
+.team-links a:hover { background: var(--panel); }
+.team-links a:hover .tl-arrow { transform: translate(3px, -3px); }
+@media (max-width: 1000px) { .team-links ul { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px) { .team-links ul { grid-template-columns: 1fr; } }

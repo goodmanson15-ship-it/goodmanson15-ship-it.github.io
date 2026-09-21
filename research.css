@@ -198,3 +198,7 @@
   .rs-type, .rs-year { display: none; }
   .rs-highlights { grid-template-columns: 1fr; }
 }
+
+.rs-team li a { display: inline-flex; gap: 6px; }
+.rs-team li a span { color: var(--accent); }
+.rs-team li:has(a):hover { background: var(--ink); color: var(--paper); }
