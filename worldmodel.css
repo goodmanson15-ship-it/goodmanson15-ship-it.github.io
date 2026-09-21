@@ -59,6 +59,7 @@
 }
 
 .deck-btn:hover { border-color: var(--ink); }
+.deck-about { text-decoration: none; }
 .deck-btn[aria-pressed="true"],
 .deck-btn.is-on { color: var(--paper); background: var(--ink); border-color: var(--ink); }
 .deck-btn.is-over { color: var(--paper); background: var(--accent); border-color: var(--accent); }
